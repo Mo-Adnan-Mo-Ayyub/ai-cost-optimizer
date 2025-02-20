@@ -24,9 +24,20 @@ jobs:
 
       - name: Run AI Cost Optimizer (DeepSeek)
         env:
-          DEEPSEEK_API_URL: ${{ secrets.DEEPSEEK_API_URL }}  # Set DeepSeek URL as a GitHub Secret
+          DEEPSEEK_API_URL: ${{ secrets.DEEPSEEK_API_URL }}
         run: |
           python main.py &
-          sleep 5  # Wait for the FastAPI server to start
-          curl -X POST http://localhost:8000/analyze -H "Content-Type: application/json" -d '{"code": "${{ github.event.pull_request.head.repo.contents_url }}"}' > analysis.txt
+          
+          # Wait for FastAPI server to be ready
+          for i in {1..10}; do
+              if curl -s http://localhost:8000/health; then
+                  break
+              fi
+              sleep 2
+          done
+
+          # Run the analysis
+          curl -X POST http://localhost:8000/analyze \
+               -H "Content-Type: application/json" \
+               -d '{"code": "sample_code"}' > analysis.txt
           cat analysis.txt

@@ -1,0 +1,35 @@
+2025-02-20 14:48:11,600 - cloud-optimizer - INFO - Analyzing code snippet: FROM ubuntu:latest
+RUN apt-get update...
+2025-02-20 14:48:12,551 - httpcore.connection - DEBUG - connect_tcp.started host='localhost' port=11434 local_address=None timeout=60 socket_options=None
+2025-02-20 14:48:12,812 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000015D31A01160>
+2025-02-20 14:48:12,813 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-02-20 14:48:12,814 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-02-20 14:48:12,815 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-02-20 14:48:12,816 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-02-20 14:48:12,816 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-02-20 14:48:55,734 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Thu, 20 Feb 2025 09:18:55 GMT'), (b'Content-Length', b'898')])
+2025-02-20 14:48:55,736 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2025-02-20 14:48:55,737 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-02-20 14:48:55,738 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-02-20 14:48:55,739 - httpcore.http11 - DEBUG - response_closed.started
+2025-02-20 14:48:55,740 - httpcore.http11 - DEBUG - response_closed.complete
+2025-02-20 14:48:55,741 - httpcore.connection - DEBUG - close.started
+2025-02-20 14:48:55,741 - httpcore.connection - DEBUG - close.complete
+2025-02-20 14:53:11,242 - cloud-optimizer - INFO - Analyzing code snippet: FROM ubuntu:latest
+RUN apt-get update...
+2025-02-20 14:53:12,108 - httpcore.connection - DEBUG - connect_tcp.started host='localhost' port=11434 local_address=None timeout=60 socket_options=None
+2025-02-20 14:53:12,388 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000239BE5A52B0>
+2025-02-20 14:53:12,390 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-02-20 14:53:12,391 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-02-20 14:53:12,392 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-02-20 14:53:12,394 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-02-20 14:53:12,395 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-02-20 14:53:34,435 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Thu, 20 Feb 2025 09:23:34 GMT'), (b'Content-Length', b'735')])
+2025-02-20 14:53:34,437 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2025-02-20 14:53:34,438 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-02-20 14:53:34,439 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-02-20 14:53:34,440 - httpcore.http11 - DEBUG - response_closed.started
+2025-02-20 14:53:34,441 - httpcore.http11 - DEBUG - response_closed.complete
+2025-02-20 14:53:34,441 - cloud-optimizer - DEBUG - AI Model Raw Response: {'model': 'deepseek-r1:1.5b', 'created_at': '2025-02-20T09:23:34.3047851Z', 'response': '{"cloud_cost_inefficiencies": {\n"description": "Describe inefficiencies",\n"severity": "low/medium/high",\n"line_numbers": [1, 2, 3]\n},\n"security_vulnerabilities": {\n"description": "Describe vulnerabilities",\n"severity": "low/medium/high",\n"line_numbers": [1, 2, 3]\n},\n"optimization_suggestions": {\n"description": "Provide suggestions",\n"improvements": [\n{"description": "Improvement 1", "impact": "Describe impact"}\n,\n{"description": "Improvement 2", "impact": "Describe impact"}\n]\n}}\n \n\n    \n   \n \n   \n \n   \n   \n \n   \n \n   \n \n   \n\n   \n \n   \n   \n   \n', 'done': False}
+2025-02-20 14:53:34,444 - httpcore.connection - DEBUG - close.started
+2025-02-20 14:53:34,445 - httpcore.connection - DEBUG - close.complete

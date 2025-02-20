@@ -1,0 +1,32 @@
+name: AI Cost Optimizer
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  analyze-cost:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run AI Cost Optimizer (DeepSeek)
+        env:
+          DEEPSEEK_API_URL: ${{ secrets.DEEPSEEK_API_URL }}  # Set DeepSeek URL as a GitHub Secret
+        run: |
+          python main.py &
+          sleep 5  # Wait for the FastAPI server to start
+          curl -X POST http://localhost:8000/analyze -H "Content-Type: application/json" -d '{"code": "${{ github.event.pull_request.head.repo.contents_url }}"}' > analysis.txt
+          cat analysis.txt
